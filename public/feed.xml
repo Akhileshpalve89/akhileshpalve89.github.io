@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vedant Lavale — Blog</title>
+    <link>https://vedantworks.com/blogs</link>
+    <description>Essays and notes by Vedant Lavale on software development, backend systems, web architecture, and production engineering.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 15 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://vedantworks.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgres Backups Under the Hood</title>
+      <link>https://vedantworks.com/blogs/postgres-backups-under-the-hood</link>
+      <guid isPermaLink="true">https://vedantworks.com/blogs/postgres-backups-under-the-hood</guid>
+      <description>pg_dump, filesystem backups, and continuous WAL archiving — and why the cleverest part of Postgres&apos; backup system is that a backup doesn&apos;t have to be a perfect snapshot.</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <author>vedant@vedantworks.com (Vedant Lavale)</author>
+    </item>
+    <item>
+      <title>It Worked in Staging. Production Destroyed It. Queues Saved It.</title>
+      <link>https://vedantworks.com/blogs/it-worked-in-staging-production-destroyed-it-queues-saved-it</link>
+      <guid isPermaLink="true">https://vedantworks.com/blogs/it-worked-in-staging-production-destroyed-it-queues-saved-it</guid>
+      <description>How switching from a synchronous trigger pipeline to queued background jobs fixed production outages and made processing resilient.</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <author>vedant@vedantworks.com (Vedant Lavale)</author>
+    </item>
+    <item>
+      <title>Horizontal Scaling in Databases: Part 1 — Read Replicas</title>
+      <link>https://vedantworks.com/blogs/horizontal-scaling-in-databases-part-1-read-replicas</link>
+      <guid isPermaLink="true">https://vedantworks.com/blogs/horizontal-scaling-in-databases-part-1-read-replicas</guid>
+      <description>As applications grow, databases often become the bottleneck. Learn how read replicas helps serve data efficiently by separating read and write responsibilities.</description>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
+      <author>vedant@vedantworks.com (Vedant Lavale)</author>
+    </item>
+    <item>
+      <title>How to convert any Medium blog to Markdown in seconds</title>
+      <link>https://vedantworks.com/blogs/move-your-medium-articles-to-your-own-platform-in-less-than-1-minute</link>
+      <guid isPermaLink="true">https://vedantworks.com/blogs/move-your-medium-articles-to-your-own-platform-in-less-than-1-minute</guid>
+      <description>Convert your Medium articles into clean, editable Markdown format quickly with mdify—no copy-pasting required.</description>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 GMT</pubDate>
+      <author>vedant@vedantworks.com (Vedant Lavale)</author>
+    </item>
+    <item>
+      <title>How HTTP Works: A First Principles Guide</title>
+      <link>https://vedantworks.com/blogs/how-a-14-line-protocol-became-the-god-of-the-web</link>
+      <guid isPermaLink="true">https://vedantworks.com/blogs/how-a-14-line-protocol-became-the-god-of-the-web</guid>
+      <description>A breakdown of how browsers fetch websites and APIs send data, covering HTTP basics, headers, caching, CORS, and HTTPS.</description>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 GMT</pubDate>
+      <author>vedant@vedantworks.com (Vedant Lavale)</author>
+    </item>
+    <item>
+      <title>Why I use Next.js</title>
+      <link>https://vedantworks.com/blogs/demo-blog-2</link>
+      <guid isPermaLink="true">https://vedantworks.com/blogs/demo-blog-2</guid>
+      <description>Exploring the benefits of React Server Components and the App Router for modern web development.</description>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
+      <author>vedant@vedantworks.com (Vedant Lavale)</author>
+    </item>
+  </channel>
+</rss>
