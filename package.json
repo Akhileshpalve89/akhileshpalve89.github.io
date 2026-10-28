@@ -1,0 +1,1 @@
+{"name":"akhileshpalve89-portfolio","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"astro dev","build":"astro build && node scripts/copy-legacy-assets.mjs","preview":"astro preview"},"dependencies":{"astro":"^5.13.5"}}
