@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0e0c">
+<meta name="description" content="Security field notes by Akhilesh Palve covering Active Directory enumeration, phishing triage, cloud metadata security, and practical cybersecurity.">
+<title>Security Field Notes | Akhilesh Palve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0b0e0c;--panel:#101612;--line:rgba(135,190,139,.22);--green:#a8dfad;--text:#edf3ed;--muted:#a4b1a5;--red:#d65b68;--mono:'Share Tech Mono',ui-monospace,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.8 var(--mono)}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(135,190,139,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(135,190,139,.055) 1px,transparent 1px);background-size:34px 34px}a{color:var(--green);text-underline-offset:4px}a:hover{color:#d0f0d2}.shell{width:min(100% - 36px,1040px);margin:auto;position:relative}.topbar{position:sticky;top:0;z-index:5;background:rgba(11,14,12,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}.brand{color:var(--green);text-decoration:none}.top-links{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem}.top-links a{text-decoration:none;color:var(--muted)}.top-links a:hover{color:var(--green)}main{padding:62px 0 90px}.prompt{color:var(--green);font-size:.92rem}.hero{padding:26px 0 38px;border-bottom:1px solid var(--line)}h1,h2,h3{line-height:1.35;font-weight:400}h1{font-size:clamp(2rem,5vw,3.3rem);margin:.3em 0;color:var(--text)}h1 span,h2 span{color:var(--green)}.subtitle{color:var(--muted);max-width:720px}.index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 58px}.index a{display:block;padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:4px;text-decoration:none}.index small{display:block;color:var(--muted);margin-top:6px}.article{padding:34px 0;border-top:1px solid var(--line);scroll-margin-top:90px}.article:first-of-type{border-top:0}.meta{color:var(--muted);font-size:.85rem;display:flex;gap:14px;flex-wrap:wrap}.article h2{font-size:clamp(1.45rem,3vw,2rem);margin:10px 0 12px}.article h3{font-size:1.2rem;color:var(--green);margin:25px 0 8px}.article p,.article li{color:#cbd5cc}.article ul,.article ol{padding-left:25px}.article li{padding:3px 0}.callout{border-left:2px solid var(--green);background:var(--panel);padding:14px 18px;margin:20px 0;color:#dce7dc}.code{overflow:auto;padding:15px 18px;background:#070a08;border:1px solid var(--line);border-radius:4px;color:var(--green);white-space:pre-wrap;overflow-wrap:anywhere}.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{font-size:.8rem;border:1px solid var(--line);padding:2px 8px;color:var(--muted)}.back{display:inline-block;margin-top:25px;text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:4px}.footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:.85rem}.footer .shell{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}@media(max-width:760px){.index{grid-template-columns:1fr}.topbar-inner{align-items:flex-start;padding:12px 0;flex-direction:column}.top-links{gap:12px}main{padding-top:35px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="shell topbar-inner"><a class="brand" href="index.html">0xakhil@portfolio:~$</a><nav class="top-links" aria-label="Main navigation"><a href="index.html#about">about</a><a href="index.html#projects">projects</a><a href="index.html#blog">blog</a><a href="index.html#contact">contact</a></nav></div></header>
+<main class="shell">
+<div class="hero"><div class="prompt">┌──(0xakhil㉿field-notes)-[~/research]</div><div class="prompt">└─$ ls -la ./posts</div><h1>Security <span>Field Notes</span></h1><p class="subtitle">Practical notes on security testing, threat analysis, and defensive engineering. These are learning references and lab workflows—not claims of testing any specific production environment.</p></div>
+<nav class="index" aria-label="Field notes index"><a href="#active-directory"><span>01 / Active Directory</span><small>Enumeration before exploitation</small></a><a href="#phishing-triage"><span>02 / Threat Intelligence</span><small>A structured phishing review</small></a><a href="#cloud-metadata"><span>03 / Cloud Security</span><small>Metadata exposure and mitigations</small></a></nav>
+<article class="article" id="active-directory">
+<div class="meta"><span>FIELD NOTE_001</span><span>ACTIVE DIRECTORY</span><span>6 MIN READ</span></div>
+<h2>Active Directory Enumeration: <span>Start With the Map</span></h2>
+<p>When assessing an Active Directory lab, it is tempting to jump straight into attack tooling. A better first step is to understand the environment: its domain structure, identities, group relationships, hosts, and the trust boundaries connecting them. Good enumeration turns a pile of output into a set of testable hypotheses.</p>
+<h3>1. Confirm the scope and your starting point</h3><p>Record the authorized domain, in-scope hosts, your current account privileges, and any rules of engagement. In a lab, note which machine and network segment you are operating from. Do not scan systems outside the agreed scope.</p>
+<h3>2. Build an identity and host inventory</h3><p>Use approved, low-impact queries to identify domain controllers, DNS configuration, domain users and groups, computer accounts, and relevant service accounts. Keep the raw output and timestamp it so findings can be reproduced.</p>
+<div class="code"># Example: inspect domain context from a Windows lab host
+whoami
+whoami /all
+echo %USERDOMAIN%
+nltest /dsgetdc:%USERDOMAIN%</div>
+<p>These commands are starting points for a Windows domain lab. Availability and results depend on the host configuration and current permissions.</p>
+<h3>3. Follow relationships, not just object names</h3><p>Prioritize relationships that may affect security: nested group membership, delegated permissions, service accounts with excessive rights, privileged sessions on workstations, and permissions over Group Policy Objects. Graph tools such as BloodHound can help visualize relationships, but a graph edge is a lead to validate—not proof that a path is exploitable.</p>
+<h3>4. Turn observations into findings</h3><ul><li><strong>Observation:</strong> describe the exact object, permission, or relationship.</li><li><strong>Validation:</strong> explain how it was confirmed within scope.</li><li><strong>Impact:</strong> state what an attacker could do if the condition is abused.</li><li><strong>Remediation:</strong> remove unnecessary rights, tighten delegation, rotate exposed credentials, or reduce privileged account exposure as appropriate.</li></ul>
+<div class="callout">Field rule: enumerate methodically, validate every assumption, and document the evidence needed for another tester to reproduce the finding.</div>
+<div class="tagrow"><span class="tag">Active Directory</span><span class="tag">BloodHound</span><span class="tag">LDAP</span><span class="tag">Lab Notes</span></div>
+</article>
+<article class="article" id="phishing-triage">
+<div class="meta"><span>FIELD NOTE_002</span><span>THREAT INTELLIGENCE</span><span>5 MIN READ</span></div>
+<h2>Phishing Triage: <span>More Than a Suspicious Link</span></h2>
+<p>A suspicious email is a collection of signals, not a verdict based on one URL. A disciplined triage workflow preserves evidence, looks for corroborating indicators, and avoids accidentally interacting with attacker-controlled infrastructure.</p>
+<h3>1. Preserve the message</h3><p>Keep the original message or approved export, including full headers and timestamps. Record who received it and whether anyone clicked a link, opened an attachment, replied, or entered credentials. Follow your organization's evidence-handling policy.</p>
+<h3>2. Review sender authentication and routing</h3><p>Inspect the visible From address alongside Return-Path, Reply-To, and the Received chain. Review SPF, DKIM, and DMARC results, while remembering that authentication passing does not automatically make a message trustworthy. Look for lookalike domains, unexpected reply destinations, and inconsistencies with the claimed sender.</p>
+<h3>3. Analyze URLs and attachments safely</h3><ul><li>Extract and normalize URLs without opening them in a normal browser session.</li><li>Check domain age, reputation, redirects, and related indicators using approved threat-intelligence services.</li><li>For attachments, record file type, hashes, and metadata in a controlled analysis environment.</li><li>Do not upload confidential messages or customer files to public scanners unless policy permits it.</li></ul>
+<div class="code">Triage record
+- Sender / Reply-To:
+- SPF, DKIM, DMARC:
+- URLs and domains:
+- Attachment names and SHA-256:
+- Reputation sources checked:
+- User interaction reported:
+- Confidence and next action:</div>
+<h3>4. Decide and communicate</h3><p>Correlate the evidence before classifying the message. If malicious, follow incident-response procedures to contain affected accounts, remove matching messages where appropriate, block validated indicators, and reset credentials or revoke sessions when exposure is suspected. Share a short explanation with users so they know what to report next time.</p>
+<div class="callout">A reputation score is one input—not a substitute for context, evidence, and analyst judgment.</div>
+<div class="tagrow"><span class="tag">Email Analysis</span><span class="tag">OSINT</span><span class="tag">IOC</span><span class="tag">SOC</span></div>
+</article>
+<article class="article" id="cloud-metadata">
+<div class="meta"><span>FIELD NOTE_003</span><span>CLOUD SECURITY</span><span>5 MIN READ</span></div>
+<h2>Cloud Metadata Services: <span>Reduce the Exposure</span></h2>
+<p>Cloud instance metadata services can expose useful information to workloads, including temporary credentials in some configurations. If an application can be tricked into making requests to internal addresses, a server-side request forgery (SSRF) flaw may become a path toward metadata access. The exact risk depends on the cloud provider, metadata configuration, workload identity, and permissions attached to the instance.</p>
+<h3>Why it matters</h3><p>Metadata endpoints are often reachable from within a virtual machine or workload network. An SSRF vulnerability that allows arbitrary or insufficiently restricted outbound requests can potentially reach destinations the application developer did not intend. If credentials are exposed, excessive IAM permissions can amplify the impact.</p>
+<h3>Defensive checklist</h3><ul><li><strong>Require hardened metadata access:</strong> use the provider's recommended protections, such as IMDSv2 on AWS where applicable, and enforce them through policy.</li><li><strong>Constrain outbound requests:</strong> use allowlists, destination validation, redirect controls, and network-level egress restrictions where practical.</li><li><strong>Use least privilege:</strong> grant workload identities only the permissions required for their task; avoid broad wildcard permissions.</li><li><strong>Keep secrets out of responses and logs:</strong> never return raw metadata or credentials to users, and avoid logging sensitive tokens.</li><li><strong>Monitor and rotate:</strong> alert on unusual credential use, investigate suspicious access, and revoke or rotate credentials when exposure is suspected.</li><li><strong>Test safely:</strong> validate SSRF defenses in a controlled environment with non-sensitive test targets and explicit authorization.</li></ul>
+<h3>Review questions for a cloud assessment</h3><ol><li>Can user-controlled input influence the destination of server-side requests?</li><li>Are redirects and alternate IP representations handled safely?</li><li>Can the workload reach metadata endpoints, and what protections are enforced?</li><li>What permissions would temporary workload credentials provide?</li><li>Are unusual API calls logged, alerted on, and tied to a workload identity?</li></ol>
+<div class="callout">Defense in depth matters: block unintended requests, harden metadata access, minimize identity permissions, and monitor credential use together.</div>
+<div class="tagrow"><span class="tag">SSRF</span><span class="tag">IAM</span><span class="tag">Cloud Security</span><span class="tag">CSPM</span></div>
+</article>
+<a class="back" href="index.html#blog">← Back to portfolio blog index</a>
+</main>
+<footer class="footer"><div class="shell"><span>0xakhil@field-notes:~$ exit</span><span>Research with permission. Document with care.</span><a href="index.html">Return to portfolio</a></div></footer>
+</body>
+</html>
