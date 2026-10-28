@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+ const posts = await getCollection('blog', ({ data }) => !data.draft);
+ return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BaseLayout title={post.data.title + ' | Akhilesh Palve'} description={post.data.description}><article class="article"><a class="back-link" href="/blog/">← ALL FIELD NOTES</a><div class="eyebrow" style="margin-top:32px">{post.data.tags.join(' / ') || 'SECURITY FIELD NOTE'}</div><h1>{post.data.title}</h1><p class="article-description">{post.data.description}</p><div class="article-meta"><span>{post.data.pubDate.toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric',timeZone:'UTC'})}</span><span>·</span><span>{post.data.readTime ?? 'Field note'}</span></div><div class="prose"><Content /></div><hr style="border:0;border-top:1px solid var(--line);margin:48px 0 28px" /><a class="back-link" href="/blog/">← MORE FIELD NOTES</a></article></BaseLayout>
