@@ -26,12 +26,12 @@ const MONTH_NAMES = [
   "Dec",
 ];
 
-// Clean monochrome / grayscale levels with high-contrast visible inactive cells
+// Clean monochrome / grayscale levels: light white to bright white according to submissions
 const LEVEL_CLASSES: Record<number, string> = {
   0: "bg-neutral-200 dark:bg-neutral-800",
-  1: "bg-neutral-400 dark:bg-[#484848]",
-  2: "bg-neutral-600 dark:bg-[#787878]",
-  3: "bg-neutral-800 dark:bg-[#b0b0b0]",
+  1: "bg-neutral-400 dark:bg-white/35",
+  2: "bg-neutral-500 dark:bg-white/60",
+  3: "bg-neutral-700 dark:bg-white/85",
   4: "bg-neutral-950 dark:bg-white",
 };
 
@@ -75,6 +75,37 @@ function generateSkeleton(weeksCount: number = 53): DayContribution[] {
   });
 }
 
+function calculateLevels(contributions: { date: string; count: number }[]): DayContribution[] {
+  const activeCounts = contributions
+    .map((c) => c.count)
+    .filter((c) => c > 0)
+    .sort((a, b) => a - b);
+
+  if (activeCounts.length === 0) {
+    return contributions.map((c) => ({ ...c, level: 0 }));
+  }
+
+  const min = activeCounts[0];
+  const max = activeCounts[activeCounts.length - 1];
+
+  return contributions.map((c) => {
+    if (c.count <= 0) return { ...c, level: 0 };
+    if (max === min) return { ...c, level: 4 };
+
+    let rank = 0;
+    for (let i = 0; i < activeCounts.length; i++) {
+      if (c.count >= activeCounts[i]) {
+        rank = i;
+      }
+    }
+    const percentile = (rank + 1) / activeCounts.length;
+    if (percentile <= 0.25) return { ...c, level: 1 };
+    if (percentile <= 0.55) return { ...c, level: 2 };
+    if (percentile <= 0.85) return { ...c, level: 3 };
+    return { ...c, level: 4 };
+  });
+}
+
 async function fetchContributions(username: string): Promise<DayContribution[] | null> {
   try {
     const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`);
@@ -87,11 +118,12 @@ async function fetchContributions(username: string): Promise<DayContribution[] |
       (item: DayContribution) => new Date(`${item.date}T00:00:00Z`).getUTCDay() === 0
     );
     const sliced = raw.slice(firstSunday < 0 ? 0 : firstSunday);
-    return sliced.map((item: any) => ({
-      date: item.date,
-      count: item.count,
-      level: Math.min(4, Math.max(0, item.level)),
-    }));
+    return calculateLevels(
+      sliced.map((item: any) => ({
+        date: item.date,
+        count: item.count || 0,
+      }))
+    );
   } catch {
     return null;
   }
