@@ -282,6 +282,7 @@ export function GitHubActivity({
   return (
     <div
       data-slot="github-activity"
+      suppressHydrationWarning
       className={cn(
         "relative max-w-full overflow-hidden rounded-2xl border border-border/60 bg-transparent dark:bg-transparent p-4",
         className
