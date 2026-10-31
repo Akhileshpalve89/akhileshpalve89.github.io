@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { RESUME_DATA } from "@/data/resume";
 
 interface RailItem {
   id: string;
@@ -13,7 +14,9 @@ const RAIL_ITEMS: RailItem[] = [
   { id: "intro", label: "Intro", description: "Personal introduction, summary, and links." },
   { id: "experience", label: "Experience", description: "Work history, engineering roles, and achievements." },
   { id: "projects", label: "Projects", description: "Featured applications, developer tools, and products." },
-  { id: "open-source", label: "Open Source", description: "Contributions and merged pull requests to open source." },
+  ...(RESUME_DATA.openSource && RESUME_DATA.openSource.length > 0
+    ? [{ id: "open-source", label: "Open Source", description: "Contributions and merged pull requests to open source." }]
+    : []),
   { id: "activity", label: "Activity", description: "Yearly GitHub activity and contribution timeline." },
   { id: "blogs", label: "Blogs", description: "Technical write-ups, architecture breakdowns, and thoughts." },
   { id: "skills", label: "Skills", description: "Core technologies, languages, frameworks, and tooling." },

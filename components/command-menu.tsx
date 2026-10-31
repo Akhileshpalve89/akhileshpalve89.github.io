@@ -70,7 +70,9 @@ export function CommandMenuProvider({ children }: { children: React.ReactNode })
     { id: "intro", label: "Intro" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
-    { id: "open-source", label: "Open Source" },
+    ...(RESUME_DATA.openSource && RESUME_DATA.openSource.length > 0
+      ? [{ id: "open-source", label: "Open Source" }]
+      : []),
     { id: "activity", label: "Activity" },
     { id: "blogs", label: "Blogs" },
     { id: "skills", label: "Skills" },

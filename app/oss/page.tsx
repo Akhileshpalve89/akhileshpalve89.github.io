@@ -20,7 +20,13 @@ export default function OssPage() {
           </p>
         </div>
 
-        <OssAccordion items={RESUME_DATA.openSource} />
+        {RESUME_DATA.openSource.length > 0 ? (
+          <OssAccordion items={RESUME_DATA.openSource} />
+        ) : (
+          <div className="rounded-xl border border-dashed border-border/70 p-10 text-center text-sm text-muted-foreground">
+            No contributions listed yet.
+          </div>
+        )}
       </section>
     </main>
   );

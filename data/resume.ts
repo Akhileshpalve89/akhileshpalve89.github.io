@@ -351,53 +351,7 @@ export const RESUME_DATA: ResumeData = {
       image: "/images/ai-disease.png",
     },
   ],
-  openSource: [
-    {
-      repo: "Akhileshpalve89/Phishing-Email-Analyzer",
-      prTitle: "Real-time email header parsing & OSINT threat reputation lookup",
-      prUrl: "https://github.com/Akhileshpalve89/Phishing-Email-Analyzer",
-      status: "merged",
-      date: "2026-08-14",
-      description:
-        "Built modular browser extension engine that extracts SPF, DKIM, and DMARC headers and correlates URLs against open threat intelligence APIs.",
-    },
-    {
-      repo: "Akhileshpalve89/CyberAttack-Honeypot",
-      prTitle: "SSH emulation daemon with geo-IP logging and payload capture",
-      prUrl: "https://github.com/Akhileshpalve89/CyberAttack-Honeypot",
-      status: "merged",
-      date: "2026-05-18",
-      description:
-        "Implemented low-interaction SSH listener logging brute-force credentials, command sessions, and automated attack script downloads into structured JSON.",
-    },
-    {
-      repo: "Akhileshpalve89/Vulnerable-Active-Directory",
-      prTitle: "Automated lab provisioning scripts with misconfigured ACLs & SPNs",
-      prUrl: "https://github.com/Akhileshpalve89/Vulnerable-Active-Directory",
-      status: "merged",
-      date: "2026-03-10",
-      description:
-        "Created PowerShell automation scripts to deploy an Active Directory testbed configured with Kerberoasting, AS-REP roasting, and unconstrained delegation paths.",
-    },
-    {
-      repo: "Akhileshpalve89/Writeups",
-      prTitle: "Add comprehensive privilege escalation notes for 15+ HTB machines",
-      prUrl: "https://github.com/Akhileshpalve89/Writeups",
-      status: "merged",
-      date: "2025-12-05",
-      description:
-        "Published detailed walkthroughs focusing on Linux sudo misconfigurations, Windows Token manipulation, and Active Directory BloodHound analysis.",
-    },
-    {
-      repo: "Akhileshpalve89/Bug-Bounty-Wordlists",
-      prTitle: "Curate specialized parameter and endpoint wordlists for API fuzzing",
-      prUrl: "https://github.com/Akhileshpalve89/Bug-Bounty-Wordlists",
-      status: "merged",
-      date: "2025-09-20",
-      description:
-        "Assembled high-signal wordlists targeting modern REST/GraphQL APIs, hidden admin endpoints, and common OAuth redirect bugs.",
-    },
-  ],
+  openSource: [],
   blogs: [
     {
       title: "Active Directory Enumeration: Start With the Map",

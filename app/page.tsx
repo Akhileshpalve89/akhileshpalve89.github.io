@@ -159,30 +159,34 @@ export default function Home() {
             </div>
           </div>
 
-          <hr className="mx-auto my-10 w-full max-w-3xl border-border/60" />
+          {RESUME_DATA.openSource.length > 0 && (
+            <>
+              <hr className="mx-auto my-10 w-full max-w-3xl border-border/60" />
 
-          {/* Open Source Section */}
-          <div id="open-source" className="scroll-mt-24">
-            <div className="mx-auto w-full max-w-3xl">
-              <section className="flex min-h-0 flex-col gap-y-3">
-                <h2 className="text-xl font-semibold tracking-tight text-foreground">
-                  open source.
-                </h2>
-                <OssAccordion items={RESUME_DATA.openSource.slice(0, 3)} />
-                <div className="flex justify-center mt-6">
-                  <Link href="/oss">
-                    <button
-                      type="button"
-                      className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 gap-2"
-                    >
-                      View all contributions
-                      <ChevronRight className="h-4 w-4" />
-                    </button>
-                  </Link>
+              {/* Open Source Section */}
+              <div id="open-source" className="scroll-mt-24">
+                <div className="mx-auto w-full max-w-3xl">
+                  <section className="flex min-h-0 flex-col gap-y-3">
+                    <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                      open source.
+                    </h2>
+                    <OssAccordion items={RESUME_DATA.openSource.slice(0, 3)} />
+                    <div className="flex justify-center mt-6">
+                      <Link href="/oss">
+                        <button
+                          type="button"
+                          className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 gap-2"
+                        >
+                          View all contributions
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </Link>
+                    </div>
+                  </section>
                 </div>
-              </section>
-            </div>
-          </div>
+              </div>
+            </>
+          )}
 
           {/* Activity Section */}
           <div id="activity" className="scroll-mt-24">
