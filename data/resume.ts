@@ -59,7 +59,7 @@ export interface ResumeData {
   initials: string;
   location: string;
   locationLink: string;
-  about: string;
+  //about: string;
   summary: string;
   tldr: string;
   callLink: string;
@@ -84,13 +84,13 @@ export const RESUME_DATA: ResumeData = {
   initials: "AP",
   location: "Pune, Maharashtra, India",
   locationLink: "https://www.google.com/maps/place/Pune,+Maharashtra,+India",
-  about: "Cybersecurity Specialist • Pen Tester • Bug Bounty Hunter",
+  //about: "Cybersecurity Specialist • Pen Tester • Bug Bounty Hunter",
   summary:
     "Cybersecurity practitioner specializing in Vulnerability Assessment & Penetration Testing (VAPT), Active Directory security, and cloud defense. Experienced in leading a 20+ member security team, identifying high-impact vulnerabilities across enterprise web applications, and building automated security tooling.",
-  tldr: "tl;dr: Offensive security researcher focused on identifying, validating, and neutralizing vulnerabilities through rigorous penetration testing, red team simulation, and defensive engineering.",
+  tldr: "Offensive security researcher focused on identifying, validating, and neutralizing vulnerabilities through rigorous penetration testing, red team simulation, and defensive engineering.",
   callLink: "mailto:akhileshpalve89@gmail.com",
   opportunities:
-    "Open to security analyst, penetration testing, VAPT engineering, and red team roles.",
+    "Open to security analyst, penetration testing, VAPT engineering, SOC Analyst, and red team roles.",
   avatarUrl: "/profile.jpeg",
   personalWebsiteUrl: "https://akhileshpalve89.github.io",
   githubUsername: "Akhileshpalve89",
@@ -111,6 +111,11 @@ export const RESUME_DATA: ResumeData = {
         name: "Email",
         url: "mailto:akhileshpalve89@gmail.com",
         icon: "email",
+      },
+      {
+        name: "TryHackMe",
+        url: "https://tryhackme.com/p/akhill",
+        icon: "tryhackme",
       },
     ],
   },
@@ -275,7 +280,7 @@ export const RESUME_DATA: ResumeData = {
       logo: null,
       link: {
         label: "varys",
-        href: "https://github.com/Akhileshpalve89",
+        href: "https://github.com/Akhileshpalve89/cyber-triage-tool",
       },
       github: "https://github.com/Akhileshpalve89",
       image: "/images/varys.png",
@@ -335,20 +340,6 @@ export const RESUME_DATA: ResumeData = {
       },
       github: "https://github.com/Akhileshpalve89",
       image: "/images/siem-soc.png",
-    },
-    {
-      title: "AI Disease Outbreak Prediction",
-      category: "self",
-      techStack: ["Python", "Scikit-Learn", "Pandas", "Time-Series"],
-      description:
-        "AI-driven predictive analytics engine that ingests epidemiological datasets to forecast and trace potential disease outbreaks using machine learning classification and time-series forecasting models.",
-      logo: null,
-      link: {
-        label: "disease-ai",
-        href: "https://github.com/Akhileshpalve89",
-      },
-      github: "https://github.com/Akhileshpalve89",
-      image: "/images/ai-disease.png",
     },
   ],
   openSource: [],

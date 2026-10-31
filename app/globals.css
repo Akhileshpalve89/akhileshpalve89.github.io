@@ -95,3 +95,90 @@
 pre code {
   font-family: var(--font-mono), monospace;
 }
+
+/* ─── Hero background: Ken Burns — slow zoom + subtle drift ─── */
+@keyframes hero-ken-burns {
+  0%   { transform: scale(1.00) translate(0%, 0%); }
+  25%  { transform: scale(1.06) translate(-1%, 0.5%); }
+  50%  { transform: scale(1.10) translate(-1.5%, -0.8%); }
+  75%  { transform: scale(1.06) translate(0.5%, -1%); }
+  100% { transform: scale(1.00) translate(0%, 0%); }
+}
+
+.hero-bg-animate {
+  animation: hero-ken-burns 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ─── Scan-line sweep: a glowing horizontal bar drifts top to bottom ─── */
+@keyframes scanline {
+  0%   { top: -4%; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { top: 104%; opacity: 0; }
+}
+
+.hero-scanline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(16, 185, 129, 0.15) 20%,
+    rgba(16, 185, 129, 0.55) 50%,
+    rgba(16, 185, 129, 0.15) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px 3px rgba(16, 185, 129, 0.3);
+  pointer-events: none;
+  animation: scanline 7s linear infinite;
+  z-index: 3;
+}
+
+/* ─── Subtle grid overlay (HUD aesthetic) ─── */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ─── Typewriter cursor blink ─── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 0.85s step-start infinite;
+}
+
+/* ─── Glass card border pulse ─── */
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(255, 255, 255, 0.10); }
+  50%       { border-color: rgba(16, 185, 129, 0.30); }
+}
+
+.glass-card {
+  animation: border-pulse 4s ease-in-out infinite;
+}
+
+/* ─── Hero content fade-up on load ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content-animate {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-content-animate-delay {
+  animation: fade-up 0.9s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-content-animate-delay-2 {
+  animation: fade-up 0.9s 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
