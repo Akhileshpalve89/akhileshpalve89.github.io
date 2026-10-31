@@ -19,7 +19,7 @@ export default function Home() {
       url: RESUME_DATA.personalWebsiteUrl,
       image: `${RESUME_DATA.personalWebsiteUrl}${RESUME_DATA.avatarUrl}`,
       email: `mailto:${RESUME_DATA.contact.email}`,
-      jobTitle: RESUME_DATA.work[0]?.title || "Software Engineer",
+      jobTitle: RESUME_DATA.work[0]?.title || "Cybersecurity Specialist",
       description: RESUME_DATA.summary,
       alumniOf: [
         {
@@ -88,15 +88,14 @@ export default function Home() {
               </p>
 
               <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
-                {RESUME_DATA.tldr.split("Want to build something together?")[0]}
-                Want to build something together? Schedule a{" "}
+                {RESUME_DATA.tldr}{" "}
                 <a
                   href={RESUME_DATA.callLink}
                   target="_blank"
                   rel="noreferrer"
                   className="font-medium text-foreground underline decoration-emerald-500 decoration-2 underline-offset-4 transition-colors hover:decoration-emerald-400"
                 >
-                  call
+                  Get in touch
                 </a>
                 .
               </p>

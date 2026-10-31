@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(RESUME_DATA.personalWebsiteUrl),
-  title: `${RESUME_DATA.name} | Software Developer`,
+  title: `${RESUME_DATA.name} | Cybersecurity Specialist`,
   description: RESUME_DATA.summary,
   authors: [{ name: RESUME_DATA.name, url: RESUME_DATA.personalWebsiteUrl }],
   creator: RESUME_DATA.name,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: RESUME_DATA.personalWebsiteUrl,
-    title: `${RESUME_DATA.name} | Software Developer`,
+    title: `${RESUME_DATA.name} | Cybersecurity Specialist`,
     description: RESUME_DATA.summary,
     siteName: RESUME_DATA.name,
     images: [
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: `${RESUME_DATA.name} - Software Developer`,
+        alt: `${RESUME_DATA.name} - Cybersecurity Specialist`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${RESUME_DATA.name} | Software Developer`,
+    title: `${RESUME_DATA.name} | Cybersecurity Specialist`,
     description: RESUME_DATA.summary,
     images: ["/og.png"],
-    creator: "@vedantdotrpm",
+    creator: "@Akhileshpalve89",
   },
   icons: {
     icon: "/favicon.ico",

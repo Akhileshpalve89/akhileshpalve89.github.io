@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "vedantworks.com",
+        hostname: "akhileshpalve89.github.io",
       },
     ],
   },
