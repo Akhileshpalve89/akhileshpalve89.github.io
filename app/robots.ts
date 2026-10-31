@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { RESUME_DATA } from "@/data/resume";
 
+export const dynamic = "force-static";
+
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = RESUME_DATA.personalWebsiteUrl;
 
